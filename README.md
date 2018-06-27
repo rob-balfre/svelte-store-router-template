@@ -28,6 +28,25 @@ npm run dev
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 
+## Router API
+
+Full router options:
+
+```js
+export default {
+  'name': {
+    route: '/foo',
+    beforeResolve: () => {}, 
+    resolve: () => {}, // supports promises
+    onRouteChange: () => {},
+    beforeExit: () => {}, // supports promises
+    afterExit: () => {},
+  }
+}; 
+```
+
+See src/main.js and src/routes.js and src/components/App.html for a full example
+
 ## Deploying to the web
 
 ### With [now](https://zeit.co/now)
