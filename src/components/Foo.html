@@ -1,0 +1,21 @@
+<p>Foo</p>
+
+<svelte:component this="{fooComponent}" />
+
+<script>
+  import store from '../store.js';
+  import Loading from './Loading.html';
+  import FooList from './FooList.html';
+  import FooDetail from './FooDetail.html';
+
+  export default {
+    store: () => store,
+    computed: {
+      fooComponent: ({ $routeFoo }) => {
+        if ($routeFoo === 'list') return FooList;
+        if ($routeFoo === 'detail') return FooDetail;
+        return Loading;
+      }
+    }
+  };
+</script>

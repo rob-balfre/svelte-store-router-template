@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/RouteLink.html",
+    "../src/components/RouteLink.html"
+  ],
+  "sourcesContent": [
+    "<a on:click=\"navigate()\"><slot></slot></a>\n\n<style>\n    a:hover {\n        cursor: pointer;\n    }\n</style>\n\n<script>\n    import { startRouteChange } from \"./routeChange.js\";\n\n    export default {\n      methods: {\n        navigate() {\n          const { name, path } = this.get();\n          return startRouteChange(name, path);\n        }\n      }\n    }\n</script>",
+    "<a on:click=\"navigate()\"><slot></slot></a>\n\n<style>\n    a:hover {\n        cursor: pointer;\n    }\n</style>\n\n<script>\n    import { startRouteChange } from \"../routeChange.js\";\n\n    export default {\n      methods: {\n        navigate() {\n          const { name, path } = this.get();\n          return startRouteChange(name, path);\n        }\n      }\n    }\n</script>"
+  ],
+  "names": [],
+  "mappings": "AAGI,gBAAC,MAAM,AAAC,CAAC,AACL,MAAM,CAAE,OAAO,AACnB,CAAC;ACFD,gBAAC,MAAM,AAAC,CAAC,AACL,MAAM,CAAE,OAAO,AACnB,CAAC"
+}

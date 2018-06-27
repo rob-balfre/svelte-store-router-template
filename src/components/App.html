@@ -1,0 +1,33 @@
+<p>App. Active route: { $activeRoute }</p>
+<ul>
+    <li><RouteLink name="home" path="/">Home</RouteLink></li>
+    <li><RouteLink name="foo.list" path="/foo">Foo</RouteLink></li>
+    <li><RouteLink name="foo.detail" path="/foo/{ pp }">Foo detail</RouteLink></li>
+</ul>
+
+<svelte:component this="{rootComponent}" />
+
+<script>
+  import store from '../store.js';
+  import Home from './Home.html';
+  import Foo from './Foo.html';
+  import RouteLink from './RouteLink.html';
+
+  export default {
+    store: () => store,
+    components: {
+      RouteLink
+    },
+    data() {
+      return {
+        pp: 'frig',
+      }
+    },
+    computed: {
+      rootComponent: ({ $routeRoot }) => {
+        if ($routeRoot === 'home') return Home;
+        if ($routeRoot === 'foo') return Foo;
+      }
+    },
+  };
+</script>

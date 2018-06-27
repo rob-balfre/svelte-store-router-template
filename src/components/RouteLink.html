@@ -1,0 +1,20 @@
+<a on:click="navigate()"><slot></slot></a>
+
+<style>
+    a:hover {
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    import { startRouteChange } from "../routeChange.js";
+
+    export default {
+      methods: {
+        navigate() {
+          const { name, path } = this.get();
+          return startRouteChange(name, path);
+        }
+      }
+    }
+</script>
